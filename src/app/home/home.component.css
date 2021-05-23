@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.box {
+    position: relative;
+    top: 150px;
+    width: 500px;
+    height: 300px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.box a {
+    display: flex;
+    height: 100px;
+    align-items: center;
+    font-size: large;
+}
+
+#rightButton {
+    background-color:rgb(231, 210, 233);
+}
