@@ -10,6 +10,7 @@ export class PatientFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    var title = "Patient Form";
   }
 
 }
