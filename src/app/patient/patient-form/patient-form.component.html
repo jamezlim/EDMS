@@ -1,1 +1,69 @@
-<p>patient-form works!</p>
+<div class= "container">
+
+  <button mat-button color="primary" (click)="accordion.openAll()">Expand All</button>
+  <button mat-button color="primary" (click)="accordion.closeAll()">Collapse All</button>
+
+    <mat-accordion class="patientInfoForm" multi>
+        <mat-expansion-panel [expanded] ="true">
+          <mat-expansion-panel-header class = "panelheader">
+            <mat-panel-title>
+              Patient Information
+            </mat-panel-title>
+            <mat-panel-description>
+              
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+
+          <form [formGroup] ="patientInfoForm" class="patient-info-form">
+            <table>
+              <tr>
+                <td>
+                  <label>Name</label>
+                  <mat-form-field >
+                    <input formControlName = "Name" matInput>
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field >
+                    <input matInput >
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field appearance="outline">
+                    <input matInput >
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <mat-form-field appearance="fill">
+                  <label>Address</label>
+                  <input formControlName = "Address" matInput >
+                </mat-form-field>
+              </tr>
+            </table>
+            
+          
+            <mat-form-field appearance="fill" >
+              <mat-label>Leave a comment</mat-label>
+              <textarea formControlName = "Address" matInput placeholder="Ex. It makes me feel..."></textarea>
+            </mat-form-field>
+          </form>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded] ="true">
+          <mat-expansion-panel-header class = "panelheader">
+            <mat-panel-title>
+              Glass Prescription
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+
+
+
+
+
+
+</div>

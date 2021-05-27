@@ -1,0 +1,35 @@
+form label {
+    font-size: large;
+    margin-right: 5px;
+}
+
+.panelheader {
+    background-color: rgba(26, 169, 212, 0.603);
+}
+
+mat-accordion {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-right: 40px;
+    padding-left: 40px;
+    margin-top: 20px;
+}
+
+table {
+    border-spacing: 15px;
+}
+
+tr {
+    padding: 20px;
+}
+
+td {
+    border: solid 1px rgb(153, 149, 149);
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+    height: 10px;
+    margin : 10px;
+}
+
