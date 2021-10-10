@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { MatIconRegistry } from "@angular/material/icon";
-import { DomSanitizer } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-root',
@@ -8,9 +7,5 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'edms-eyejoa';
-
-  constructor( private matIconRegistry : MatIconRegistry, private domSanitizer : DomSanitizer ){
-    this.matIconRegistry.addSvgIcon('glasses', domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/sun-glasses.svg'));
-  }
+  
 }

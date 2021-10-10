@@ -1,60 +1,156 @@
 <div class= "container">
-
-  <button mat-button color="primary" (click)="accordion.openAll()">Expand All</button>
-  <button mat-button color="primary" (click)="accordion.closeAll()">Collapse All</button>
+  <div class ="patient-form-top-bar">
+    <div class ="patient-form-top-bar-left">
+      <button mat-button (click)="accordion.openAll()">Expand All</button>
+      <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+    </div>
+    <div class ="patient-form-top-bar-right">
+      <app-sticky-note [patientName] = "patientInfoForm.controls['Name'].value" 
+                      [patientDOB] = "patientInfoForm.controls['DOB'].value" 
+                      [patientInsurance] = "patientInfoForm.controls['Insurance'].value"
+                      [isNew] = "true"></app-sticky-note>
+    </div>
+  </div>
 
     <mat-accordion class="patientInfoForm" multi>
+
+      <form [formGroup] ="patientInfoForm" class="patient-info-form" (ngSubmit) ="submitPatientInfoForm()">
+        <!-- exanpsion#0 -->
         <mat-expansion-panel [expanded] ="true">
           <mat-expansion-panel-header class = "panelheader">
             <mat-panel-title>
-              Patient Information
+              - Patient Visit -
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <table>
+            <tr>
+              <td style="width:30%">
+                <label>Date of Visit</label>
+                  <input formControlName = "VisitDate">
+              </td>
+              <td style="width:30%">
+                <label>Due Date</label>
+                  <input formControlName = "DueDate" placeholder="Optional" [matDatepicker]="dueDatePicker">
+                  <mat-datepicker-toggle matSuffix [for]="dueDatePicker" class="date-picker"></mat-datepicker-toggle>
+                  <mat-datepicker #dueDatePicker></mat-datepicker>
+              </td>
+              <td style="width:40%">
+                <label>Handle With</label>
+                  <input formControlName = "HandleWith" placeholder="Any family members?" >
+              </td>
+            </tr>
+          </table>
+        </mat-expansion-panel>
+
+        <!-- exanpsion#1 -->
+        <mat-expansion-panel [expanded] ="true">
+          <mat-expansion-panel-header class = "panelheader">
+            <mat-panel-title>
+              - Patient Information -
             </mat-panel-title>
             <mat-panel-description>
               
             </mat-panel-description>
           </mat-expansion-panel-header>
 
-
-          <form [formGroup] ="patientInfoForm" class="patient-info-form">
             <table>
               <tr>
-                <td>
+                <td style="width:50%">
                   <label>Name</label>
-                  <mat-form-field >
-                    <input formControlName = "Name" matInput>
-                  </mat-form-field>
+                    <input formControlName = "Name">
                 </td>
-                <td>
-                  <mat-form-field >
-                    <input matInput >
-                  </mat-form-field>
+                <td style="width:10%">
+                  <div class="gender-radio">
+                    <label>
+                      <input type="radio" value="Male" formControlName="Gender">
+                      <span>Male</span>
+                      <!-- <mat-icon class="woman-icon" svgIcon ="woman-color"></mat-icon> -->
+                      <!-- <span class ="radio-control"></span> -->
+                    </label>
+                    <label>
+                      <input type="radio" value="Female" formControlName="Gender">
+                        <span>Female</span>
+                    </label>
+                  </div>
                 </td>
-                <td>
-                  <mat-form-field appearance="outline">
-                    <input matInput >
-                  </mat-form-field>
+                <td style="width:40%">
+                    <label> Date of Birth </label>
+                    <input formControlName = "DOB" placeholder="mm/dd/yyyy" [matDatepicker]="picker">
+                    <mat-datepicker-toggle matSuffix [for]="picker" class="date-picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
                 </td>
               </tr>
+
               <tr>
-                <mat-form-field appearance="fill">
-                  <label>Address</label>
-                  <input formControlName = "Address" matInput >
-                </mat-form-field>
+                <td colspan="3">
+                    <label>Address</label>
+                    <input formControlName = "Address">
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="1">
+                    <label>Cell</label>
+                    <input formControlName = "Cell">
+                </td>
+                <td colspan="2">
+                    <label>Insurance</label>
+                    <input formControlName = "Insurance">
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="1">
+                    <label>Home</label>
+                    <input formControlName = "Home">
+                </td>
+                <td colspan="2">
+                  <label>Insurance ID</label>
+                  <input formControlName = "InsuranceId">
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="1">
+                    <label>E-mail</label>
+                    <input formControlName = "Email">
+                </td>
+                <td colspan="2">
+                  <label>Company Name</label>
+                  <input formControlName = "CompanyName">
+                </td>
               </tr>
             </table>
-            
-          
-            <mat-form-field appearance="fill" >
-              <mat-label>Leave a comment</mat-label>
-              <textarea formControlName = "Address" matInput placeholder="Ex. It makes me feel..."></textarea>
-            </mat-form-field>
-          </form>
-        </mat-expansion-panel>
+            <div class ="mat-expansion-panel-footer">
+              <button type="submit" mat-raised-button color="primary"> Save  <i class="bi bi-archive"></i></button>
+            </div>
+          </mat-expansion-panel>
+        </form>
 
+        <!-- exanpsion#2 -->
         <mat-expansion-panel [expanded] ="true">
           <mat-expansion-panel-header class = "panelheader">
             <mat-panel-title>
               Glass Prescription
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+
+        <!-- exanpsion#3 -->
+        <mat-expansion-panel [expanded] ="true">
+          <mat-expansion-panel-header class = "panelheader">
+            <mat-panel-title>
+              Contact Lenses
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+
+        <!-- exanpsion#4 -->
+        <mat-expansion-panel [expanded] ="true">
+          <mat-expansion-panel-header class = "panelheader">
+            <mat-panel-title>
+              Medical History
             </mat-panel-title>
           </mat-expansion-panel-header>
         </mat-expansion-panel>

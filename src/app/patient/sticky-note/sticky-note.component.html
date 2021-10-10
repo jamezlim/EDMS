@@ -1,0 +1,10 @@
+<div class ="sticky-note">
+        <div class ="corner-ribbon sticky shadow "> {{ isNew? 'New!' : 'Existing'}}</div>
+        <button [ngClass]="['chip', Type[type] ]" (click) = "onClickTypeButton()"> {{Type[type]}} </button>
+        <h2> {{patientName}} </h2>
+        <p> {{patientDOB}}</p>
+        <p *ngIf="patientInsurance"> -{{patientInsurance}}</p>
+
+        <p> </p>
+
+</div>

@@ -1,3 +1,4 @@
+import { CanDeactivateGuard } from './shared/services/can-deactivate-guard.service';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -5,7 +6,7 @@ import { PatientFormComponent } from './patient/patient-form/patient-form.compon
 
 
 const routes: Routes = [
-  { path : 'patient-form',  component : PatientFormComponent},
+  { path : 'patient-form',  component : PatientFormComponent, canDeactivate: [CanDeactivateGuard]},
   { path : 'home', component : HomeComponent},
   { path : '' , redirectTo : '/home', pathMatch : 'full'},
   // { path : '**' , redirectTo : 'home', pathMatch : 'full'}

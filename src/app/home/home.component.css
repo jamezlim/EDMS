@@ -9,7 +9,7 @@
     top: 150px;
     width: 500px;
     height: 300px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -23,5 +23,5 @@
 }
 
 #rightButton {
-    background-color:rgb(231, 210, 233);
+    background-color:rgb(205, 231, 247);
 }

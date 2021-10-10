@@ -1,10 +1,32 @@
-form label {
+label {
     font-size: large;
-    margin-right: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+    display: inline-block;
+    width: 130px;
 }
 
-.panelheader {
-    background-color: rgba(26, 169, 212, 0.603);
+.mat-focus-indicator.mat-icon-button.mat-button-base {
+    height: 20px;
+}
+
+input {
+    font-size: 1.4em;
+    width: 70%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    height: 40px;
+
+}
+
+mat-hint {
+    font-size: 0.9em;
+}
+
+.mat-icon-button {
+    width: 20px;
+    height: 20px;
 }
 
 mat-accordion {
@@ -18,18 +40,117 @@ mat-accordion {
 
 table {
     border-spacing: 15px;
+    margin: 3px;
+    width: 100%;
 }
 
 tr {
-    padding: 20px;
+    padding: 10px;
+    width: 90%;
 }
 
 td {
     border: solid 1px rgb(153, 149, 149);
     border-radius: 10px;
-    width: 100%;
     padding: 10px;
     height: 10px;
     margin : 10px;
+    width: auto;
 }
 
+mat-panel-title {
+    font-weight:550;
+    color:rgb(79, 136, 241);
+}
+
+.patient-form-top-bar {
+    width: 90%;
+    height: 250px;
+    left: auto;
+    right: auto;
+    display: inline-flex;
+    margin-left: 50px;
+}
+
+.patient-form-top-bar-left {
+    display: inline-flex; 
+    align-items: flex-end;
+    justify-content: flex-start;
+    width: 40%;
+    color:rgb(255, 255, 255)
+}
+
+.patient-form-top-bar-right {
+    display: inline-flex; 
+    width: 60%;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 10px;
+    padding-top: 15px;
+}
+
+.input {
+    width: auto;
+}
+
+.gender-radio input {
+    width:17px;
+    height: 17px;
+    margin-right: 10px;
+}
+
+.mat-expansion-panel-footer {
+    position: relative;
+    float: right;
+    right: 13px;
+}
+
+.mat-expansion-panel-footer button {
+    width: 150px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.bi {
+    margin-left: 15px;
+    font-size: x-large;
+}
+
+
+
+
+/* .gender-radio input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.radio-control {
+    display: block;
+    border: 0.1em solid currentColor;
+    background-image: url(../../../assets/icons/man.svg);
+    height: 50px;
+    width: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+.radio-control:hover {
+    fill:blue;
+    color: blue;
+}
+
+.radio-control:checked {
+    color:rgb(79, 136, 241);
+}
+
+.woman-icon {
+    fill:rgb(182, 179, 179);
+    width: 40px;
+    height: 40px;
+}
+
+.woman-icon:hover {
+    fill: rgb(194, 92, 168);
+} */

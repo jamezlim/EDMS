@@ -1,6 +1,10 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import {MatAccordion} from '@angular/material/expansion';
+import { FormBuilder } from '@angular/forms'
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
+import { CanComponentDeactivate } from '../../shared/services/can-deactivate-guard.service'
 
 
 @Component({
@@ -8,29 +12,44 @@ import {MatAccordion} from '@angular/material/expansion';
   templateUrl: './patient-form.component.html',
   styleUrls: ['./patient-form.component.css']
 })
-export class PatientFormComponent implements OnInit {
-  constructor(){}
-  Today : Date;
+export class PatientFormComponent implements OnInit, CanComponentDeactivate {
+
+  constructor(private datePipe : DatePipe, private formBuilder : FormBuilder, private matIconRegistry : MatIconRegistry, private domSanitizer : DomSanitizer ){
+    this.matIconRegistry.addSvgIcon('woman-color', domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/woman.svg'));
+  }
+  today : Date = new Date();
   isOpen : boolean;
   @ViewChild(MatAccordion) accordion: MatAccordion;
 
   ngOnInit(): void {
     this.isOpen = true;
-    var title = "Patient Form";
-    // this.Today = new Date();
+    this.today = new Date();
   }
 
 
-  patientInfoForm = new FormGroup({ 
-    Name : new FormControl(''), 
-    Gender : new FormControl(''),
-    DOB : new FormControl(''),
-    Address : new FormControl(''),
-    Cell : new FormControl(''),
-    Home : new FormControl(''),
-    Email : new FormControl(''),
-    Insurance : new FormControl(''),
-    InsuranceId : new FormControl(''),
-    CompanyName : new FormControl(''),
+  patientInfoForm = this.formBuilder.group({
+    VisitDate : [this.datePipe.transform(new Date(), 'MM/dd/yyyy HH:mm')],
+    DueDate : [this.today],
+    HandleWith : [],
+    Name : [],
+    Gender : [],
+    DOB : [],
+    Address : [],
+    Cell : [],
+    Home : [],
+    Email : [],
+    Insurance : [],
+    InsuranceId : [],
+    CompanyName : []
   });
+  
+  submitPatientInfoForm(){
+    
+  }
+
+  confirmExit() {
+    return confirm("Sure to exit?");
+  }
+
+  
 }

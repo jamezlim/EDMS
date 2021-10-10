@@ -1,3 +1,4 @@
+import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -14,11 +15,13 @@ import { PatientModule } from './patient/patient.module';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     // angular core library 
@@ -34,6 +37,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule,
 
     PatientModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
